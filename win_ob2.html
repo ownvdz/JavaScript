@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let addNum = 0;
+        let subNum = 1000;
+        let auto_1 = setInterval(function(){
+                addNum++;
+                console.log("addNum : " + addNum);
+            }, 1000);
+            let auto_2 = setInterval(function(){
+                subNum--;
+                console.log("subNum : " + subNum);
+            }, 1000);
+    </script>
+
+</head>
+<body>
+    <h1> 일정 시간 간격으로 값 증감시키기</h1>
+    <p> 콘솔 패널을 이용하여 보시오.</p>
+    
+    <button onclick="clearInterval(auto_1)"> 증가 정지 </button>
+    <button onclick="clearInterval(auto_2)"> 감소 정지 </button>
+</body>
+</html>

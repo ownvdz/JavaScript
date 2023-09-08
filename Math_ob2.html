@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+        document.write("<pre><h1> 컴퓨터                      나 </h1></pre>");
+        let game = prompt("가위, 바위, 보 중 선택", "");
+        let gameNum;
+            switch (game) {
+                case "가위" : gameNum = 1;
+                    break;
+                case "바위" : gameNum = 2;
+                    break;
+                case "보" : gameNum = 3;
+                    break;
+                default : alert("잘못 작성하셨습니다");
+                    location.reload();
+            }
+        
+        let com = Math.ceil(Math.random() * 3);
+
+        document.write(`<img src='media/math_img${com}.png'>`);
+        document.write(`<img src='media/math_img${gameNum}.png'>`);
+        if(gameNum == com) {
+            document.write("<h1>비겼습니다. </h1>");
+        } else {
+            if((gameNum == 1 && com == 2) || (gameNum == 2&& com == 3) || (gameNum==3 && com == 1)) {
+                document.write("<h1>내가 졌습니다. </h1>");
+            } else {
+                document.write("<h1>내가 이겼습니다.</h1>");
+            }
+        }
+        
+    </script>
+</body>
+</html>
