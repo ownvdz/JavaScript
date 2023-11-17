@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+      $(function () {
+        let txt1 = $(".txt1");
+        $(".btnWrap button").on("click", function () {
+          if (!txt1.is(":animated")) {
+            if ($(this).hasClass("backBtn")) {
+              txt1.animate({ marginLeft: "0px" }, 2000);
+            } else {
+              txt1.animate({ marginLeft: "540px" }, 2000);
+            }
+          }
+        });
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        padding: 30;
+      }
+      .btnWrap {
+        margin-bottom: 10px;
+      }
+      .wrap {
+        max-width: 600px;
+        border: 1px solid #000;
+      }
+      .txt1 {
+        width: 10%;
+        text-align: center;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="btnWrap">
+      <button class="backBtn">Back</button>
+      <button class="goBtn">Go</button>
+    </p>
+    <div class="wrap">
+      <p class="txt1">내용1</p>
+    </div>
+  </body>
+</html>
