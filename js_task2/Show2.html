@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="js/jquery.js"></script>
+<script>
+    
+    var count=1;
+    $(function() {
+        $("span").css("color", "blue")
+        .hide();
+        $("#btn").click(function() {
+            if (count%2) {
+                $("span").show();
+            } else {
+                $("span").hide();
+            }
+            count++;
+        });
+    });
+</script>
+<body>
+    <h3>다음 빈 곳에 숨은 단어? <input type="button" value="show/hide" id="btn"></h3>
+    <hr>
+    <ul>
+        <li> I (<span>love</span>) you.</li>
+        <li> CSS is Cascading (<span>Style</span>) Sheet.</li>
+        <li> 응답하라 (<span>1988</span>)</li>
+    </ul>
+</body>
+</html>
