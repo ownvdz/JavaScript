@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-image: url("media/snow.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+      div.snow {
+        position: absolute;
+        font-size: 40px;
+        color: white;
+        padding: 0px;
+        margin: 0px;
+      }
+    </style>
+    <script>
+      const SNOWS = 40;
+      const snow = new Array(SNOWS);
+      const x = new Array(SNOWS);
+      const y = new Array(SNOWS);
+      const speedOfFall = new Array(SNOWS);
+      const speedOfWind = new Array(SNOWS);
+      const step = new Array(SNOWS);
+
+      function fall() {
+        for (let i = 0; i < SNOWS; i++) {
+          y[i] += speedOfFall[i];
+          x[i] += Math.cos(speedOfWind[i]);
+          if (y[i] >= window.innerHeight - 60) {
+            x[i] = Math.floor(Math.random() * window.innerWidth);
+            y[i] = 0;
+            speedOfFall[i] = Math.random() * 2 + 2;
+          }
+
+          if (x[i] >= window.innerWidth) x[i] = window.innerWidth - 50;
+          else if (x[i] < 0) x[i] = 50;
+
+          snow[i].style.top = y[i] + "px";
+          snow[i].style.left = x[i] + "px";
+
+          speedOfWind[i] += step[i];
+        }
+        setTimeout("fall()", 50);
+      }
+
+      function makeSnow() {
+        for (let i = 0; i < SNOWS; i++) {
+          document.write(`<div class='snow' id=snowobj${i}>*</div>`);
+          snow[i] = document.getElementById(`snowobj${i}`);
+        }
+      }
+
+      function initSnowPosition() {
+        for (let i = 0; i < SNOWS; i++) {
+          x[i] = Math.floor(Math.random() * window.innerWidth - 10);
+          y[i] = Math.floor(Math.random() * window.innerHeight + 10);
+          speedOfFall[i] = Math.random() * 2 + 2;
+          speedOfWind[i] = 1;
+          step[i] = Math.random() * 0.1 + 0.05;
+
+          snow[i].style.top = y[i] + "px";
+          snow[i].style.left = x[i] + "px";
+        }
+      }
+
+      makeSnow();
+
+      window.onload = function () {
+        initSnowPosition();
+        fall();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
